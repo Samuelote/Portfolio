@@ -1,7 +1,168 @@
+/* Art Content Section */
+@keyframes upToDown {
+  0% {
+    top: 80%;
+    left: -30%;
+  }
+  100% {
+    top: 10%;
+    left: 100%;
+  }
+}
+@keyframes downToUp {
+  0% {
+    top: 10%;
+    left: -30%;
+  }
+  100% {
+    top: 50%;
+    left: 100%;
+  }
+}
+/* @keyframes cloud {
+  to {left: 100%}
+
+} */
+.ArtContent {
+  position: relative;
+}
+.PaperPlane1 {
+  top: -100%;
+  left: -100%;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 100px solid white;
+  animation: upToDown 2s 1 linear forwards;
+  animation-delay: 1s;
+}
+.PaperPlane2 {
+  top: 10%;
+  left: 10%;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 100px solid white;
+  animation: downToUp 2s 1 linear forwards;
+  transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+}
+.Crease {
+  position: absolute;
+  top: -84px;
+  left: -66px;
+  transform:rotate(-11deg);
+    -moz-transform: rotate(-11deg);
+    -o-transform: rotate(-11deg);
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 170px solid transparent;
+  border-top: 40px solid gainsboro;
+}
+
+.Cloud1 {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 500px;
+  height: 80px;
+  background: white;
+  border-radius: 100px;
+  transform: scale(.4);
+  animation: cloud 5s 2 linear forwards;
+}
+.Cloud2 {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  width: 500px;
+  height: 80px;
+  background: white;
+  border-radius: 100px;
+  transform: scale(.5);
+}
+.Layer1 {
+  position: absolute;
+  top: -130%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 100px;
+}
+.Layer2 {
+  position: absolute;
+  top: -180%;
+  left: 35%;
+  width: 200px;
+  height: 200px;
+  background: white;
+  border-radius: 100px;
+}
+.Layer3 {
+  position: absolute;
+  top: -60%;
+  left: 70%;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 100px;
+}
+.Layer4 {
+  position: absolute;
+  top: -50%;
+  left: 5%;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 100px;
+}
+.Layer5 {
+  position: absolute;
+  top: -220%;
+  left: 30%;
+  width: 250px;
+  height: 250px;
+  background: white;
+  border-radius: 150px;
+}
+.Layer6 {
+  position: absolute;
+  top: -60%;
+  left: 70%;
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 100px;
+}
+.Layer7 {
+  position: absolute;
+  top: -105%;
+  left: 15%;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 100px;
+}
+
+
+
+/*  main content section*/
 @keyframes fadeIn {
   to {opacity: 1;}
 }
-
+@keyframes lengthen {
+  to {
+    opacity: 1;
+    width: 50%;
+  }
+}
 body {
   background: #699ef4;
   display: flex;
@@ -9,6 +170,7 @@ body {
   justify-content: center;
   flex-direction: column;
   margin: 0px;
+  overflow-x: hidden;
 }
 a {
   transition: .2s;
@@ -42,13 +204,20 @@ a:hover {
 }
 .Divider {
   height: 5px;
-  width: 50%;
+  width: 0%;
   background: #222222;
+  opacity: 0;
+  animation: lengthen 2s 1;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
 }
 .IntroContainer {
   display: flex;
   width: 80%;
   align-items: center;
+  opacity: 0;
+  animation: fadeIn 2s 1;
+  animation-fill-mode: forwards;
 }
 .IntroContainer > p {
   flex: 1;
@@ -122,8 +291,15 @@ a:hover {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 831px) {
     .IntroContainer {
         flex-direction: column;
+    }
+    .ProjectContainer > div {
+      width: 90%;
+      justify-content: center;
+    }
+    .ProjectContainer > div:hover {
+      width: 100%;
     }
 }
