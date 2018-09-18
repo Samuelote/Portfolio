@@ -1,4 +1,16 @@
+html, body {
+  background: #699ef4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+
 /* Art Content Section */
+
 @keyframes upToDown {
   0% {
     top: 80%;
@@ -19,34 +31,29 @@
     left: 100%;
   }
 }
-/* @keyframes cloud {
-  to {left: 100%}
-
-} */
+@keyframes blink {
+  to {opacity: 0;}
+}
 .ArtContent {
   position: relative;
+}
+.paperplane {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 100px solid white;
+  transition: .2s;
 }
 .PaperPlane1 {
   top: -100%;
   left: -100%;
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
-  border-top: 100px solid white;
   animation: upToDown 2s 1 linear forwards;
-  animation-delay: 1s;
 }
 .PaperPlane2 {
   top: 10%;
   left: 10%;
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
-  border-top: 100px solid white;
   animation: downToUp 2s 1 linear forwards;
   transform: rotate(20deg);
     -moz-transform: rotate(20deg);
@@ -66,26 +73,30 @@
   border-top: 40px solid gainsboro;
 }
 
-.Cloud1 {
+.cloudGeneral {
+  transition: 5s;
+  z-index: 2;
   position: absolute;
+  width: 500px;
+  height: 80px;
+  background: white;
+  border-radius: 100px;
+  animation: blink 10s linear infinite alternate;
+}
+.Cloud1 {
   top: 15%;
   left: 10%;
-  width: 500px;
-  height: 80px;
-  background: white;
-  border-radius: 100px;
   transform: scale(.4);
-  animation: cloud 5s 2 linear forwards;
+    -moz-transform: scale(.4);
+    -o-transform: scale(.4);
+  animation-delay: 5s;
 }
 .Cloud2 {
-  position: absolute;
-  top: 80%;
-  left: 10%;
-  width: 500px;
-  height: 80px;
-  background: white;
-  border-radius: 100px;
+  top: 60%;
+  left: 70%;
   transform: scale(.5);
+    -moz-transform: scale(.5);
+    -o-transform: scale(.5);
 }
 .Layer1 {
   position: absolute;
@@ -163,14 +174,17 @@
     width: 50%;
   }
 }
-body {
-  background: #699ef4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0px;
-  overflow-x: hidden;
+@keyframes soar {
+  0% {
+    transform: scale(.2) rotate(3deg);
+      -moz-transform: scale(.2) rotate(3deg);
+      -o-transform: scale(.2) rotate(3deg);
+  }
+  100% {
+    transform: scale(.2) rotate(9deg);
+      -moz-transform: scale(.2) rotate(9deg);
+      -o-transform: scale(.2) rotate(9deg);
+  }
 }
 a {
   transition: .2s;
@@ -193,22 +207,21 @@ a:hover {
   font-size: 4em;
   font-family: 'Acme', sans-serif;
   margin: 0px;
+  margin-top: 30px;
 }
 .Subheading {
   text-align: center;
   color: white;
   font-size: 1.4em;
   font-family: 'Ubuntu Condensed', sans-serif;
-  margin: 10px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 .Divider {
   height: 5px;
   width: 0%;
   background: #222222;
   opacity: 0;
-  animation: lengthen 2s 1;
-  animation-fill-mode: forwards;
+  animation: lengthen 2s 1 forwards;
   animation-delay: .5s;
 }
 .IntroContainer {
@@ -227,6 +240,14 @@ a:hover {
   font-family: 'Ubuntu Condensed', sans-serif;
 }
 
+.PlaneBaby {
+  opacity: 0;
+  top: 0px;
+  animation: soar .5s infinite linear alternate;
+}
+.ProjectContainer > div:hover > .PlaneBaby {
+  opacity: 1;
+}
 .ProjectContainer {
   width: 70%;
   display: flex;
@@ -235,13 +256,14 @@ a:hover {
   padding-bottom: 100px;
 }
 .ProjectContainer > div {
+  position: relative;
   text-align: center;
   font-size: 1.5em;
   font-family: 'Ubuntu Condensed', sans-serif;
   color: #222222;
   margin-top: 3vh;
   border-radius: 10px;
-  border: #222222 2px solid;
+  border: rgba(34, 34, 34, .8) 2px solid;
   width: 200px;
   height: 200px;
   display: flex;
@@ -292,14 +314,29 @@ a:hover {
 
 
 @media only screen and (max-width: 831px) {
+    .paperplane, .cloudGeneral {
+      display: none;
+    }
     .IntroContainer {
         flex-direction: column;
     }
+    .ProjectContainer {
+      width: 90%;
+    }
     .ProjectContainer > div {
       width: 90%;
-      justify-content: center;
+      justify-content: space-around;
     }
     .ProjectContainer > div:hover {
+      background: transparent;
+      color: #222222;
       width: 100%;
+    }
+    .BlueTitle {
+      color: white;
+      text-align: center;
+      letter-spacing: 3px;
+      font-weight: 1px;
+      order: 3;
     }
 }
