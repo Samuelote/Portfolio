@@ -1,0 +1,189 @@
+@import 'sky_art.scss';
+
+html, body {
+  background: #699ef4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+
+/*  main content section*/
+@keyframes fadeIn {
+  to {opacity: 1;}
+}
+@keyframes lengthen {
+  to {
+    opacity: 1;
+    width: 50%;
+  }
+}
+@keyframes soar {
+  0% {
+    transform: scale(.2) rotate(3deg);
+      -moz-transform: scale(.2) rotate(3deg);
+      -o-transform: scale(.2) rotate(3deg);
+  }
+  100% {
+    transform: scale(.2) rotate(9deg);
+      -moz-transform: scale(.2) rotate(9deg);
+      -o-transform: scale(.2) rotate(9deg);
+  }
+}
+a {
+  transition: .2s;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+}
+.MainContainer {
+  /* height: 98vh; */
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.Title {
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  font-family: 'Acme', sans-serif;
+  margin: 0px;
+  margin-top: 30px;
+}
+.Subheading {
+  text-align: center;
+  color: white;
+  font-size: 1.4em;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  margin-bottom: 50px;
+}
+.Divider {
+  height: 5px;
+  width: 0%;
+  background: #222222;
+  opacity: 0;
+  animation: lengthen 2s 1 forwards;
+  animation-delay: .5s;
+}
+.IntroContainer {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 2s 1;
+  animation-fill-mode: forwards;
+}
+.IntroContainer > p {
+  flex: 1;
+  text-align: center;
+  color: #f4f5f7;
+  font-size: 1.5em;
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.PlaneBaby {
+  opacity: 0;
+  top: 0px;
+  animation: soar .5s infinite linear alternate;
+}
+.ProjectContainer > div:hover > .PlaneBaby {
+  opacity: 1;
+}
+.ProjectContainer {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+}
+.ProjectContainer > div {
+  position: relative;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  color: #222222;
+  margin-top: 3vh;
+  border-radius: 10px;
+  border: rgba(34, 34, 34, .8) 2px solid;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 2s 1;
+  animation-fill-mode: forwards;
+  transition: .2s;
+}
+.ProjectContainer > div:hover {
+  background: rgba(34, 34, 34, .8);
+  color: transparent;
+
+}
+.Type {
+  font-size: .7em;
+}
+.BlueTitle {
+  color: #699ef4;
+  text-align: center;
+}
+.Footer {
+  position: fixed;
+  bottom: 0px;
+  background: #222222;
+  width: 100%;
+  height: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Footer > a > img {
+  height: 40px;
+  margin: 10px;
+}
+.Footer > div {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 1em;
+}
+.Footer > div > a {color:white; text-decoration: underline;}
+.Footer > div > a:hover {color:white;}
+.github {
+  background: radial-gradient(white 50%, black);
+}
+
+
+@media only screen and (max-width: 831px) {
+    .paperplane, .cloudGeneral {
+      display: none;
+    }
+    .IntroContainer {
+        flex-direction: column;
+    }
+    .ProjectContainer {
+      width: 90%;
+    }
+    .ProjectContainer > div {
+      width: 90%;
+      justify-content: space-around;
+    }
+    .ProjectContainer > div:hover {
+      background: transparent;
+      color: #222222;
+      width: 100%;
+    }
+    .BlueTitle {
+      color: white;
+      text-align: center;
+      letter-spacing: 3px;
+      font-weight: 1px;
+      order: 3;
+    }
+}
