@@ -31,7 +31,8 @@
   }
 }
 @keyframes blink {
-  to {opacity: 0;}
+  from {  transition: 5s; }
+  to {opacity: 0;   transition: 5s;}
 }
 
 .ArtContent {
@@ -75,7 +76,6 @@
 }
 
 .cloudGeneral {
-  transition: 5s;
   z-index: 2;
   position: absolute;
   width: 500px;
