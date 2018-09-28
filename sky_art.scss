@@ -1,13 +1,35 @@
 
-
-
 // Mixins
-@mixin transform($property) {
-  -webkit-transform: $property;
-      -ms-transform: $property;
-          transform: $property;
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+@mixin fly($top, $left, $rotate, $ani) {
+  top: $top;
+  left: $left;
+  transform: rotate($rotate);
+  @include transform(rotate($rotate));
+  animation: $ani 2s 1 linear forwards;
 }
 
+@mixin cloud($top, $left, $scale, $delay) {
+  top: $top;
+  left: $left;
+  @include transform(scale($scale));
+  animation-delay: $delay;
+}
+@mixin layer($top, $left, $width, $height, $radius) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+  background: white;
+  border-radius: $radius;
+}
 
 /* Sky Art Content Section */
 @keyframes upToDown {
@@ -35,9 +57,6 @@
   to {opacity: 0;   transition: 5s;}
 }
 
-.ArtContent {
-  position: relative;
-}
 .paperplane {
   position: absolute;
   width: 0;
@@ -48,26 +67,15 @@
   transition: .2s;
 }
 .PaperPlane1 {
-  top: -100%;
-  left: -100%;
-  animation: upToDown 2s 1 linear forwards;
+  @include fly(-100%, -100%, 0deg, upToDown);
   animation-delay: 1s;
 }
 .PaperPlane2 {
-  top: 10%;
-  left: 10%;
-  animation: downToUp 2s 1 linear forwards;
-  transform: rotate(20deg);
-    -moz-transform: rotate(20deg);
-    -o-transform: rotate(20deg);
+  @include fly(10%, 10%, 20deg, downToUp);
 }
 .Crease {
   position: absolute;
-  top: -84px;
-  left: -66px;
-  transform:rotate(-11deg);
-    -moz-transform: rotate(-11deg);
-    -o-transform: rotate(-11deg);
+  @include fly(-84px, -66px, -11deg, none);
   width: 0;
   height: 0;
   border-left: 0px solid transparent;
@@ -76,89 +84,41 @@
 }
 
 .cloudGeneral {
+  @include layer(0px, 0px, 500px, 80px, 100px);
   z-index: 2;
-  position: absolute;
-  width: 500px;
-  height: 80px;
-  background: white;
-  border-radius: 100px;
   animation: blink 10s linear infinite alternate;
 }
+
 .Cloud1 {
-  top: 15%;
-  left: 10%;
-  transform: scale(.4);
-    -moz-transform: scale(.4);
-    -o-transform: scale(.4);
-  animation-delay: 5s;
+  @include cloud(15%, 10%, .4, 5s);
 }
 .Cloud2 {
-  top: 60%;
-  left: 70%;
-  transform: scale(.5);
-    -moz-transform: scale(.5);
-    -o-transform: scale(.5);
+  @include cloud(60%, 80%, .5, 0s);
+}
+.Cloud3 {
+  @include cloud(10%, 70%, .5, 1s);
+}
+.Cloud4 {
+  @include cloud(88%, 0%, .3, 3s);
 }
 .Layer1 {
-  position: absolute;
-  top: -130%;
-  left: 10%;
-  width: 150px;
-  height: 150px;
-  background: white;
-  border-radius: 100px;
+  @include layer(-130%, 10%, 150px, 150px, 100px);
 }
 .Layer2 {
-  position: absolute;
-  top: -180%;
-  left: 35%;
-  width: 200px;
-  height: 200px;
-  background: white;
-  border-radius: 100px;
+  @include layer(-180%, 35%, 200px, 200px, 100px);
 }
 .Layer3 {
-  position: absolute;
-  top: -60%;
-  left: 70%;
-  width: 100px;
-  height: 100px;
-  background: white;
-  border-radius: 100px;
+  @include layer(-60%, 70%, 100px, 100px, 100px);
 }
 .Layer4 {
-  position: absolute;
-  top: -50%;
-  left: 5%;
-  width: 100px;
-  height: 100px;
-  background: white;
-  border-radius: 100px;
+  @include layer(-50%, 5%, 100px, 100px, 100px);
 }
 .Layer5 {
-  position: absolute;
-  top: -220%;
-  left: 30%;
-  width: 250px;
-  height: 250px;
-  background: white;
-  border-radius: 150px;
+  @include layer(-200%, 30%, 230px, 230px, 150px);
 }
 .Layer6 {
-  position: absolute;
-  top: -60%;
-  left: 70%;
-  width: 120px;
-  height: 120px;
-  background: white;
-  border-radius: 100px;
+  @include layer(-60%, 70%, 120px, 120px, 100px);
 }
 .Layer7 {
-  position: absolute;
-  top: -105%;
-  left: 15%;
-  width: 100px;
-  height: 100px;
-  background: white;
-  border-radius: 100px;
+  @include layer(-105%, 15%, 100px, 100px, 100px);
 }

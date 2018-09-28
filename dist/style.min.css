@@ -14,11 +14,11 @@
     top: 50%;
     left: 100%; } }
 @keyframes blink {
+  from {
+    transition: 5s; }
   to {
-    opacity: 0; } }
-.ArtContent {
-  position: relative; }
-
+    opacity: 0;
+    transition: 5s; } }
 .paperplane {
   position: absolute;
   width: 0;
@@ -31,16 +31,25 @@
 .PaperPlane1 {
   top: -100%;
   left: -100%;
+  transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
   animation: upToDown 2s 1 linear forwards;
   animation-delay: 1s; }
 
 .PaperPlane2 {
   top: 10%;
   left: 10%;
-  animation: downToUp 2s 1 linear forwards;
   transform: rotate(20deg);
   -moz-transform: rotate(20deg);
-  -o-transform: rotate(20deg); }
+  -o-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  transform: rotate(20deg);
+  animation: downToUp 2s 1 linear forwards; }
 
 .Crease {
   position: absolute;
@@ -49,6 +58,10 @@
   transform: rotate(-11deg);
   -moz-transform: rotate(-11deg);
   -o-transform: rotate(-11deg);
+  -ms-transform: rotate(-11deg);
+  -webkit-transform: rotate(-11deg);
+  transform: rotate(-11deg);
+  animation: none 2s 1 linear forwards;
   width: 0;
   height: 0;
   border-left: 0px solid transparent;
@@ -56,29 +69,55 @@
   border-top: 40px solid gainsboro; }
 
 .cloudGeneral {
-  transition: 5s;
-  z-index: 2;
   position: absolute;
+  top: 0px;
+  left: 0px;
   width: 500px;
   height: 80px;
   background: white;
   border-radius: 100px;
+  z-index: 2;
   animation: blink 10s linear infinite alternate; }
 
 .Cloud1 {
   top: 15%;
   left: 10%;
-  transform: scale(0.4);
   -moz-transform: scale(0.4);
   -o-transform: scale(0.4);
+  -ms-transform: scale(0.4);
+  -webkit-transform: scale(0.4);
+  transform: scale(0.4);
   animation-delay: 5s; }
 
 .Cloud2 {
   top: 60%;
-  left: 70%;
-  transform: scale(0.5);
+  left: 80%;
   -moz-transform: scale(0.5);
-  -o-transform: scale(0.5); }
+  -o-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  animation-delay: 0s; }
+
+.Cloud3 {
+  top: 10%;
+  left: 70%;
+  -moz-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  animation-delay: 1s; }
+
+.Cloud4 {
+  top: 88%;
+  left: 0%;
+  -moz-transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  transform: scale(0.3);
+  animation-delay: 3s; }
 
 .Layer1 {
   position: absolute;
@@ -118,10 +157,10 @@
 
 .Layer5 {
   position: absolute;
-  top: -220%;
+  top: -200%;
   left: 30%;
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
   background: white;
   border-radius: 150px; }
 
@@ -176,6 +215,39 @@ a {
 a:hover {
   color: white; }
 
+.About {
+  position: absolute;
+  left: 5%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 300px;
+  width: 300px;
+  border-radius: 15px;
+  font-size: 1em;
+  font-family: 'Acme', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s;
+  opacity: 0;
+  z-index: 10; }
+
+.About:hover {
+  transform: translateY(10px);
+  opacity: 1; }
+
+.About > div.subAbout {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 10px;
+  letter-spacing: .5px; }
+
+.About > div.Divider {
+  width: 70%;
+  animation: none;
+  opacity: 1;
+  background: white; }
+
 .MainContainer {
   /* height: 98vh; */
   width: 70vw;
@@ -205,7 +277,7 @@ a:hover {
   background: #222222;
   opacity: 0;
   animation: lengthen 2s 1 forwards;
-  animation-delay: .5s; }
+  animation-delay: 2.5s; }
 
 .IntroContainer {
   display: flex;
@@ -213,7 +285,8 @@ a:hover {
   align-items: center;
   opacity: 0;
   animation: fadeIn 2s 1;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-delay: 2.5s; }
 
 .IntroContainer > p {
   flex: 1;
@@ -253,8 +326,9 @@ a:hover {
   align-items: center;
   flex-direction: column;
   opacity: 0;
-  animation: fadeIn 2s 1;
+  animation: fadeIn 5s 1;
   animation-fill-mode: forwards;
+  animation-delay: 2.5s;
   transition: .2s; }
 
 .ProjectContainer > div:hover {
@@ -277,7 +351,8 @@ a:hover {
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  z-index: 100; }
 
 .Footer > a > img {
   height: 40px;
@@ -301,15 +376,21 @@ a:hover {
   .paperplane, .cloudGeneral {
     display: none; }
 
+  .Divider {
+    animation-delay: .1s; }
+
   .IntroContainer {
-    flex-direction: column; }
+    flex-direction: column;
+    animation-delay: 1s; }
 
   .ProjectContainer {
-    width: 90%; }
+    width: 90%;
+    animation-delay: .1s; }
 
   .ProjectContainer > div {
     width: 90%;
-    justify-content: space-around; }
+    justify-content: space-around;
+    animation-delay: 0s; }
 
   .ProjectContainer > div:hover {
     background: transparent;
@@ -321,6 +402,9 @@ a:hover {
     text-align: center;
     letter-spacing: 3px;
     font-weight: 1px;
-    order: 3; } }
+    order: 3; }
+
+  .About {
+    display: none; } }
 
 /*# sourceMappingURL=style.min.css.map */
