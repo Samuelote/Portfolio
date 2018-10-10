@@ -107,7 +107,7 @@ a:hover {
   background: #222222;
   opacity: 0;
   animation: lengthen 2s 1 forwards;
-  animation-delay: 2.5s;
+  animation-delay: .5s;
 }
 .IntroContainer {
   display: flex;
@@ -116,7 +116,7 @@ a:hover {
   opacity: 0;
   animation: fadeIn 2s 1;
   animation-fill-mode: forwards;
-  animation-delay: 2.5s;
+  animation-delay: .5s;
 
 }
 .IntroContainer > p {
@@ -160,7 +160,7 @@ a:hover {
   opacity: 0;
   animation: fadeIn 5s 1;
   animation-fill-mode: forwards;
-  animation-delay: 2.5s;
+  animation-delay: .5s;
   transition: .2s;
 }
 .ProjectContainer > div:hover {
