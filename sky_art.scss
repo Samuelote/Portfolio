@@ -12,7 +12,7 @@
   left: $left;
   transform: rotate($rotate);
   @include transform(rotate($rotate));
-  animation: $ani 2s 1 linear forwards;
+  animation: $ani 10s infinite linear forwards;
 }
 
 @mixin cloud($top, $left, $scale, $delay) {
@@ -37,20 +37,29 @@
     top: 80%;
     left: -30%;
   }
-  100% {
+  10% {
     top: 10%;
     left: 100%;
   }
+	100% {
+		top: 10%;
+    left: 100%;
+	}
 }
 @keyframes downToUp {
   0% {
     top: 10%;
     left: -30%;
   }
-  100% {
+  10% {
     top: 50%;
     left: 100%;
   }
+	100% {
+		top: 50%;
+    left: 100%;
+
+	}
 }
 @keyframes blink {
   from {  transition: 5s; }

@@ -4,6 +4,10 @@
     top: 80%;
     left: -30%;
   }
+  10% {
+    top: 10%;
+    left: 100%;
+  }
   100% {
     top: 10%;
     left: 100%;
@@ -13,6 +17,10 @@
   0% {
     top: 10%;
     left: -30%;
+  }
+  10% {
+    top: 50%;
+    left: 100%;
   }
   100% {
     top: 50%;
@@ -47,7 +55,7 @@
   -ms-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  animation: upToDown 2s 1 linear forwards;
+  animation: upToDown 10s infinite linear forwards;
   animation-delay: 1s;
 }
 
@@ -60,7 +68,7 @@
   -ms-transform: rotate(20deg);
   -webkit-transform: rotate(20deg);
   transform: rotate(20deg);
-  animation: downToUp 2s 1 linear forwards;
+  animation: downToUp 10s infinite linear forwards;
 }
 
 .Crease {
@@ -73,7 +81,7 @@
   -ms-transform: rotate(-11deg);
   -webkit-transform: rotate(-11deg);
   transform: rotate(-11deg);
-  animation: none 2s 1 linear forwards;
+  animation: none 10s infinite linear forwards;
   width: 0;
   height: 0;
   border-left: 0px solid transparent;
