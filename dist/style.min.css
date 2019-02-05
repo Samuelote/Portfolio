@@ -55,7 +55,7 @@
   -ms-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  animation: upToDown 10s infinite linear forwards;
+  animation: upToDown 20s infinite linear forwards;
   animation-delay: 1s;
 }
 
@@ -68,7 +68,7 @@
   -ms-transform: rotate(20deg);
   -webkit-transform: rotate(20deg);
   transform: rotate(20deg);
-  animation: downToUp 10s infinite linear forwards;
+  animation: downToUp 20s infinite linear forwards;
 }
 
 .Crease {
@@ -81,7 +81,7 @@
   -ms-transform: rotate(-11deg);
   -webkit-transform: rotate(-11deg);
   transform: rotate(-11deg);
-  animation: none 10s infinite linear forwards;
+  animation: none 20s infinite linear forwards;
   width: 0;
   height: 0;
   border-left: 0px solid transparent;

@@ -12,7 +12,7 @@
   left: $left;
   transform: rotate($rotate);
   @include transform(rotate($rotate));
-  animation: $ani 10s infinite linear forwards;
+  animation: $ani 20s infinite linear forwards;
 }
 
 @mixin cloud($top, $left, $scale, $delay) {
