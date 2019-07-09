@@ -99,7 +99,6 @@
   border-radius: 100px;
   z-index: 2;
   animation: blink 10s linear infinite alternate;
-  z-index:0;
 }
 
 .Cloud1 {
